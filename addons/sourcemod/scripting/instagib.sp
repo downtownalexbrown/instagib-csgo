@@ -82,7 +82,8 @@ public onPlayerDeath(Handle:event, const String:name[], bool:dontBroadcast)
 }
 
 public Action respawnPlayer(Handle timer, int client) {
-	CS_RespawnPlayer(client);
+	if (client > 0 && IsClientInGame(client))
+		CS_RespawnPlayer(client);
 }
 
 public OnClientPostAdminCheck(client)
